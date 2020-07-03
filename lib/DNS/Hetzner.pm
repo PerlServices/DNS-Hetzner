@@ -2,7 +2,7 @@ package DNS::Hetzner;
 
 use v5.20;
 
-# ABSTRACT: Perl library to work with the API for the Hetzner Cloud
+# ABSTRACT: Perl library to work with the API for the Hetzner DNS
 
 use Moo;
 use Mojo::UserAgent;
@@ -68,6 +68,8 @@ sub request ( $self, $partial_uri, $opts, $params = {} ) {
         $self->endpoint,
         $partial_uri;
 
+    $uri =~ s{/\z}{};
+
     my $tx = $self->client->$method(
         $uri,
         {
@@ -87,11 +89,15 @@ sub request ( $self, $partial_uri, $opts, $params = {} ) {
 
 1;
 
+=head1 INFO
+
+This is still pretty alpha. The API might change.
+
 =head1 SYNOPSIS
 
-    use VM::HetznerCloud;
+    use DNS::Hetzner;
 
-    my $cloud = VM::HetznerCloud->new(
+    my $cloud = DNS::Hetzner->new(
         token => 'ABCDEFG1234567',    # your api token
     );
 
@@ -104,7 +110,7 @@ sub request ( $self, $partial_uri, $opts, $params = {} ) {
 
 =item * base_uri
 
-I<(optional)> Default: v1
+I<(optional)> Default: C<api/v1>
 
 =item * client 
 
@@ -113,7 +119,7 @@ is created.
 
 =item * host
 
-I<(optional)> This is the URL to Hetzner's Cloud-API. Defaults to C<https://api.hetzner.cloud>
+I<(optional)> This is the URL to Hetzner's Cloud-API. Defaults to C<https://dns.hetzner.com>
 
 =item * token
 

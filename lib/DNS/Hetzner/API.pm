@@ -34,3 +34,9 @@ sub load_namespace ($package) {
 }
 
 1;
+
+=head1 METHODS
+
+=head2 load_namespace
+
+Loads all DNS::Hetzner::API::* modules.
