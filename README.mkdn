@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/reneeb/DNS-Hetzner.svg?branch=master)](https://travis-ci.org/reneeb/DNS-Hetzner)
-[![Kwalitee status](http://cpants.cpanauthors.org/dist/DNS-Hetzner.png)](http://cpants.charsbar.org/dist/overview/DNS-Hetzner)
+[![Kwalitee status](http://cpants.cpanauthors.org/dist/DNS-Hetzner.png)](https://cpants.cpanauthors.org/dist/DNS-Hetzner)
 [![GitHub issues](https://img.shields.io/github/issues/reneeb/DNS-Hetzner.svg)](https://github.com/reneeb/DNS-Hetzner/issues)
 
 # NAME
@@ -8,18 +8,22 @@ DNS::Hetzner - Perl library to work with the API for the Hetzner DNS
 
 # VERSION
 
-version 0.01
+version 0.02
 
 # SYNOPSIS
 
     use DNS::Hetzner;
+    use Data::Printer;
 
-    my $cloud = DNS::Hetzner->new(
+    my $dns = DNS::Hetzner->new(
         token => 'ABCDEFG1234567',    # your api token
     );
 
-    my $server_client = $cloud->server;
-    my $server_list   = $server_client->list;
+    my $records = $dns->records;
+    my $zones   = $dns->zones;
+
+    my $all_records = $records->list;
+    p $all_records;
 
 # INFO
 
@@ -46,7 +50,9 @@ This is still pretty alpha. The API might change.
 
 # METHODS
 
-## request
+## records
+
+## zones
 
 
 

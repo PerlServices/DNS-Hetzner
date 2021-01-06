@@ -1,6 +1,12 @@
 Release history for DNS::Hetzner
 ================================
 
+0.02   2020-07-?? ??:??:??
+
+  * use JSON::Validator to parse OpenAPI spec
+  * improved Tests
+  * fixed prereq list in dist.ini
+
 0.01   2020-07-03 20:15:00
 
   * initial release
