@@ -8,14 +8,13 @@ use Carp;
 use Moo;
 use Mojo::UserAgent;
 use Types::Mojo qw(:all);
+use Types::Standard qw(Str);
 
 use DNS::Hetzner::Schema;
 
 with 'DNS::Hetzner::API';
 
 use Mojo::Base -strict, -signatures;
-
-our $VERSION = '0.02';
 
 has token    => ( is => 'ro', isa => Str, required => 1 );
 has host     => ( is => 'ro', isa => MojoURL["https?"], default => sub { 'https://dns.hetzner.com' }, coerce => 1 );
