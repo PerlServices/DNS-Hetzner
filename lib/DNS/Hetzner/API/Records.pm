@@ -20,8 +20,6 @@ with 'MooX::Singleton';
 use DNS::Hetzner::Schema;
 use Carp;
 
-our $VERSION = '0.02';
-
 has endpoint  => ( is => 'ro', isa => Str, default => sub { 'records' } );
 
 sub bulk_create ($self, %params) {

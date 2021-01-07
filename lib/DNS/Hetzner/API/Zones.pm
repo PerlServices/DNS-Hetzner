@@ -19,8 +19,6 @@ with 'MooX::Singleton';
 
 use DNS::Hetzner::Schema;
 
-our $VERSION = '0.02';
-
 has endpoint  => ( is => 'ro', isa => Str, default => sub { 'zones' } );
 
 sub delete ( $self, %params ) {

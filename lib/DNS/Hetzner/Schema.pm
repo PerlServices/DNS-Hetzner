@@ -13,8 +13,6 @@ use Mojo::JSON qw(decode_json);
 use Mojo::Loader qw(data_section);
 use Mojo::Util qw(camelize);
 
-our $VERSION = '0.02';
-
 use constant IV_SIZE => eval 'require Config;$Config::Config{ivsize}';
 
 sub validate ( $class, $operation, $params = {} ) {
