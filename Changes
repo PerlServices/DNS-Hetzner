@@ -1,6 +1,17 @@
 Release history for DNS::Hetzner
 ================================
 
+0.04   2021-01-09 ??:??:??
+
+
+
+0.03   2021-01-08 08:25:00
+
+  * use Dist::Zilla plugin SyncCPANfile to keep cpanfile in sync with prereq list in dist.ini
+  * let Dist::Zilla::Plugin::PkgVersion set the version numbers. This removes unecessary maintenance burdens from us ;-)
+  * remove DNS::Hetzner::API as the functionality is only used (and useful) in DNS::Hetzner the load_namespace function is moved to DNS::Hetzner
+  * need to use Types::Standard as Types::Mojo doesn't inherit methods from Types::Standard since version 0.05 (thanks CPANTesters)
+
 0.02   2021-01-06 05:20:00
 
   * more or less a rewrite
