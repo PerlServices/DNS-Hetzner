@@ -14,11 +14,11 @@ use Mojo::Base -strict, -signatures;
 use Mojo::File qw(path curfile);
 use Mojo::JSON qw(decode_json encode_json);
 use Mojo::UserAgent;
-use Mojo::Util qw(dumper decamelize);
+use Mojo::Util qw(dumper decamelize camelize);
 use Mojo::URL;
 use Data::Printer;
 use Data::Dumper::Perltidy;
-use JSON::XS;
+use JSON::XS ();
 
 $Data::Dumper::Sortkeys = 1;
 $Data::Dumper::Trailingcomma = 1;
@@ -56,7 +56,7 @@ my $fh = $path->open('>');
 $fh->print($schema_package);
 $fh->close;
 
-my @paths = keys $data->{paths}->%*;
+my @paths = sort keys $data->{paths}->%*;
 
 my $components = $data->{components};
 delete $components->{securitySchemes};
@@ -70,7 +70,7 @@ for my $api_path ( @paths ) {
     shift $parts->@*;
 
     my $name  = shift $parts->@*;
-    my $class = ucfirst $name;
+    my $class = camelize $name;
 
     my $subtree = $data->{paths}->{$api_path};
     $subtree->{path} = $api_path;
@@ -172,7 +172,6 @@ extends 'DNS::Hetzner::APIBase';
 with 'MooX::Singleton';
 
 use DNS::Hetzner::Schema;
-use Carp;
 
 has endpoint  => ( is => 'ro', isa => Str, default => sub { '%s' } );
 %s
@@ -199,8 +198,8 @@ sub _get_sub ( $operation_id, $method, $class, $uri ) {
     $method_name =~ s{_${class}s?}{};
 
     my $sub = sprintf q~
-sub %s ($self, %params) {
-    $self->_do( '%s', \%params, '%s', { type => '%s' } );
+sub %s ($self, %%params) {
+    return $self->_do( '%s', \%%params, '%s', { type => '%s' } );
 }
 ~, $method_name, $operation_id, $uri, $method;
 
@@ -227,7 +226,7 @@ sub _get_schema_package ( $path, $data ) {
 __DATA__
 @@ openapi.json
 %s
-!, JSON::XS->new->utf8(1)->pretty(1)->encode( $data );
+!, JSON::XS->new->canonical(1)->utf8(1)->pretty(1)->encode( $data );
 
     return $code;
 }
