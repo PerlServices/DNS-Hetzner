@@ -104,3 +104,6 @@ B<I<(required)>> Your API token.
 =head2 records
 
 =head2 zones
+
+=head2 primary_servers
+

@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/reneeb/DNS-Hetzner.svg?branch=master)](https://travis-ci.org/reneeb/DNS-Hetzner)
+[![Build Status](https://travis-ci.org/perlservices/DNS-Hetzner.svg?branch=master)](https://travis-ci.org/perlservices/DNS-Hetzner)
 [![Kwalitee status](http://cpants.cpanauthors.org/dist/DNS-Hetzner.png)](https://cpants.cpanauthors.org/dist/DNS-Hetzner)
-[![GitHub issues](https://img.shields.io/github/issues/reneeb/DNS-Hetzner.svg)](https://github.com/reneeb/DNS-Hetzner/issues)
+[![GitHub issues](https://img.shields.io/github/issues/perlservices/DNS-Hetzner.svg)](https://github.com/perlservices/DNS-Hetzner/issues)
 
 # NAME
 
@@ -8,7 +8,7 @@ DNS::Hetzner - Perl library to work with the API for the Hetzner DNS
 
 # VERSION
 
-version 0.03
+version 0.04
 
 # SYNOPSIS
 
@@ -54,6 +54,8 @@ This is still pretty alpha. The API might change.
 
 ## zones
 
+## primary\_servers
+
 
 
 # Development
@@ -62,7 +64,7 @@ The distribution is contained in a Git repository, so simply clone the
 repository
 
 ```
-$ git clone git://github.com/reneeb/DNS-Hetzner.git
+$ git clone git://github.com/perlservices/DNS-Hetzner.git
 ```
 
 and change into the newly-created directory.

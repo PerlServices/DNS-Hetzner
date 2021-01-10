@@ -1,9 +1,10 @@
 Release history for DNS::Hetzner
 ================================
 
-0.04   2021-01-09 ??:??:??
+0.04   2021-01-10 10:27:00
 
-
+  * Regenerate API classes for API version 1.1.1
+  * Add stuff for new Primary Server endpoint
 
 0.03   2021-01-08 08:25:00
 

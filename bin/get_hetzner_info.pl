@@ -4,7 +4,7 @@
 
 =cut
 
-# PODNAME: get_hcloud_info.pl
+# PODNAME: get_hetzner_info.pl
 # ABSTRACT: get API definitions from docs.hetzner.cloud
 
 use v5.24;
