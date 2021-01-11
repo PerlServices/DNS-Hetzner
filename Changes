@@ -1,6 +1,10 @@
 Release history for DNS::Hetzner
 ================================
 
+0.05   2021-01-11 13:19:00
+
+  * fix cpantester fails (hopefully)
+
 0.04   2021-01-10 10:27:00
 
   * Regenerate API classes for API version 1.1.1

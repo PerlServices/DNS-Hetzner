@@ -8,7 +8,7 @@ DNS::Hetzner - Perl library to work with the API for the Hetzner DNS
 
 # VERSION
 
-version 0.04
+version 0.05
 
 # SYNOPSIS
 
