@@ -5,7 +5,6 @@ package DNS::Hetzner::APIBase;
 use v5.24;
 
 use Carp;
-use Data::Printer;
 use Moo;
 use Mojo::UserAgent;
 use Mojo::Util qw(url_escape);
@@ -90,7 +89,7 @@ sub request ( $self, $partial_uri, $params = {}, $opts = {} ) {
     my $response = $tx->res;
 
     if ( $tx->error ) {
-        carp np $tx->error;
+        carp $tx->error->{message};
         return;
     }
 
