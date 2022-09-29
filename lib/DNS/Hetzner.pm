@@ -76,6 +76,14 @@ This is still pretty alpha. The API might change.
     my $all_records = $records->list;
     p $all_records;
 
+    my $res = $records->create(
+        name    => '1235.test',
+        value   => '193.148.166.125',
+        type    => 'A',
+        zone_id => 'zone_id',
+    );
+    p $res;
+
 =head1 ATTRIBUTES
 
 =over 4
@@ -84,7 +92,7 @@ This is still pretty alpha. The API might change.
 
 I<(optional)> Default: C<api/v1>
 
-=item * client 
+=item * client
 
 I<(optional)> A C<Mojo::UserAgent> compatible user agent. By default a new object of C<Mojo::UserAgent>
 is created.
